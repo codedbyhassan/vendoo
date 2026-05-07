@@ -136,10 +136,10 @@ function Page() {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{product.category}</p>
             <h1 className="mt-2 font-display text-4xl font-semibold md:text-5xl">{product.name}</h1>
             <div className="mt-4 flex items-baseline gap-3">
-              <p className="text-2xl">${product.price}</p>
+              <p className="text-2xl">{formatPrice(product.price)}</p>
               {product.compareAtPrice && (
                 <>
-                  <p className="text-base text-muted-foreground line-through">${product.compareAtPrice}</p>
+                  <p className="text-base text-muted-foreground line-through">{formatPrice(product.compareAtPrice)}</p>
                   <span className="rounded-full bg-destructive/15 px-2 py-0.5 text-[11px] font-medium text-destructive">
                     -{Math.round(((product.compareAtPrice - product.price) / product.compareAtPrice) * 100)}%
                   </span>
