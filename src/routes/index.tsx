@@ -72,9 +72,9 @@ function Page() {
       <section className="border-y border-border/60 bg-secondary/40">
         <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 sm:grid-cols-3">
           {[
-            { i: Truck, t: "Complimentary shipping", s: "On orders over $200" },
+            { i: Truck, t: "Free nationwide delivery", s: "On orders over GH₵ 2,000" },
             { i: Shield, t: "Lifetime craftsmanship", s: "Repaired or replaced" },
-            { i: Sparkles, t: "Considered materials", s: "Sourced with intention" },
+            { i: Sparkles, t: "Made for Ghana", s: "Designed in Accra · Worn worldwide" },
           ].map(({ i: Icon, t, s }) => (
             <div key={t} className="flex items-center gap-4">
               <div className="glass flex h-11 w-11 items-center justify-center rounded-full"><Icon className="h-4 w-4 text-accent" /></div>
