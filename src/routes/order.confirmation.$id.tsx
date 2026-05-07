@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import { useOrders } from "@/context/OrderContext";
 import { Check, Package, ArrowRight } from "lucide-react";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/order/confirmation/$id")({
   head: () => ({ meta: [{ title: "Order confirmed — Vendoo" }] }),
