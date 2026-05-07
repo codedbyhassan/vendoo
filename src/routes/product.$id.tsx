@@ -78,9 +78,9 @@ function Page() {
   };
 
   const eta = useMemo(() => {
-    const start = new Date(Date.now() + 1000 * 60 * 60 * 24 * 3);
-    const end = new Date(Date.now() + 1000 * 60 * 60 * 24 * 6);
-    const fmt = (d: Date) => d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    const start = new Date(Date.now() + 1000 * 60 * 60 * 24 * 2);
+    const end = new Date(Date.now() + 1000 * 60 * 60 * 24 * 5);
+    const fmt = (d: Date) => d.toLocaleDateString("en-GH", { month: "short", day: "numeric" });
     return `${fmt(start)} – ${fmt(end)}`;
   }, []);
 
