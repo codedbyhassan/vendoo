@@ -25,14 +25,16 @@ export function ProductCard({ product }: { product: Product }) {
   const onAdd = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (requiresConfig) return;
     if (outOfStock) {
       haptic("warning");
       toast.warning("Out of stock", { description: product.name });
       return;
     }
     haptic("success");
-    add(product, { color: product.colors?.[0]?.name });
+    add(product, {
+      color: product.colors?.[0]?.name,
+      size: product.sizes?.[Math.floor((product.sizes.length - 1) / 2)],
+    });
     toast.success("Added to bag", { description: product.name });
   };
 
