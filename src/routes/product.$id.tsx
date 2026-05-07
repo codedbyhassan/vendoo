@@ -9,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRecentlyViewed } from "@/context/RecentlyViewedContext";
 import { Check, ChevronLeft, Heart, Edit, ShoppingBag, Truck, RotateCcw, Ruler, X, ZoomIn } from "lucide-react";
 import { toast } from "sonner";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/product/$id")({
   head: ({ params }) => ({ meta: [{ title: `Product · Vendoo` }, { name: "description", content: "View product on Vendoo" }, { property: "og:title", content: `Product ${params.id} — Vendoo` }] }),
