@@ -145,9 +145,9 @@ function Page() {
           <aside className="glass-strong h-fit rounded-3xl p-6 shadow-soft">
             <h3 className="font-display text-lg font-semibold">Summary</h3>
             <dl className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd>${order.subtotal}</dd></div>
-              <div className="flex justify-between"><dt className="text-muted-foreground">Shipping</dt><dd>{order.shipping === 0 ? "Free" : `$${order.shipping}`}</dd></div>
-              <div className="flex justify-between border-t border-border/60 pt-2 text-base font-semibold"><dt>Total</dt><dd>${order.total}</dd></div>
+              <div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd>{formatPrice(order.subtotal)}</dd></div>
+              <div className="flex justify-between"><dt className="text-muted-foreground">Shipping</dt><dd>{order.shipping === 0 ? "Free" : formatPrice(order.shipping)}</dd></div>
+              <div className="flex justify-between border-t border-border/60 pt-2 text-base font-semibold"><dt>Total</dt><dd>{formatPrice(order.total)}</dd></div>
               <div className="flex justify-between pt-2 text-xs">
                 <dt className="text-muted-foreground">Payment</dt>
                 <dd className="capitalize">{order.paymentStatus}</dd>
