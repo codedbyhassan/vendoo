@@ -136,7 +136,7 @@ function Page() {
                       {[it.size && `Size ${it.size}`, it.color, `Qty ${it.qty}`].filter(Boolean).join(" · ")}
                     </span>
                   </div>
-                  <span className="text-sm font-medium">${it.price * it.qty}</span>
+                  <span className="text-sm font-medium">{formatPrice(it.price * it.qty)}</span>
                 </li>
               ))}
             </ul>
