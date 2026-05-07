@@ -146,7 +146,7 @@ function Page() {
             <div className="flex items-center justify-between">
               <Link to="/shop" className="text-sm text-muted-foreground hover:text-foreground">← Continue shopping</Link>
               <button disabled={submitting} className="inline-flex h-12 items-center rounded-full bg-foreground px-8 text-sm font-medium text-background shadow-glow transition-smooth hover:opacity-90 disabled:opacity-60">
-                {submitting ? "Processing..." : step === 1 ? "Continue to payment" : `Pay $${total}`}
+                {submitting ? "Processing..." : step === 1 ? "Continue to payment" : `Pay ${formatPrice(total)}`}
               </button>
             </div>
           </form>
