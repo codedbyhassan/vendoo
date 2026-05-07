@@ -106,7 +106,7 @@ export function ProductCard({ product }: { product: Product }) {
             </div>
           )}
         </div>
-        <p className="text-sm font-medium">${product.price}</p>
+        <p className="text-sm font-medium">{formatPrice(product.price)}</p>
       </Link>
     </motion.div>
   );
