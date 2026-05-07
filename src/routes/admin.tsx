@@ -253,7 +253,7 @@ function Page() {
                         </div>
                       </td>
                       <td className="p-4 text-muted-foreground">{p.category}</td>
-                      <td className="p-4">${p.price}</td>
+                      <td className="p-4">GH₵ {(p.price * 12).toLocaleString()}</td>
                       <td className="p-4 text-muted-foreground">{p.stock ?? "—"}</td>
                       <td className="p-4">
                         <div className="flex justify-end gap-2">
