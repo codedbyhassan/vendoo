@@ -62,7 +62,7 @@ function Page() {
             <div className="glass-strong absolute -bottom-6 -left-6 hidden rounded-2xl p-4 shadow-soft md:block">
               <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Featured</p>
               <p className="mt-1 font-display text-sm font-semibold">Camel Wool Coat</p>
-              <p className="text-xs text-muted-foreground">$520</p>
+              <p className="text-xs text-muted-foreground">GH₵ 6,240</p>
             </div>
           </div>
         </div>
