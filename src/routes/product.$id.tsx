@@ -193,7 +193,7 @@ function Page() {
             <div className="mt-6 grid grid-cols-2 gap-3">
               <div className="glass rounded-2xl p-4">
                 <Truck className="h-4 w-4 text-accent" />
-                <p className="mt-2 text-xs font-medium">Free shipping over $200</p>
+                <p className="mt-2 text-xs font-medium">Free delivery over GH₵ 2,000</p>
                 <p className="text-[11px] text-muted-foreground">Est. delivery {eta}</p>
               </div>
               <div className="glass rounded-2xl p-4">
