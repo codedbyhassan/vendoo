@@ -38,14 +38,14 @@ function Page() {
           <div className="animate-fade-up">
             <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs">
               <Sparkles className="h-3 w-3 text-accent" />
-              <span className="text-muted-foreground">Autumn Edit · 2026</span>
+              <span className="text-muted-foreground">Harmattan Edit · Accra 2026</span>
             </div>
             <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
               Quiet luxury,<br />
-              <span className="italic text-cocoa">considered.</span>
+              <span className="italic text-cocoa">made in Ghana.</span>
             </h1>
             <p className="mt-6 max-w-md text-base text-muted-foreground md:text-lg">
-              A curated wardrobe of heirloom essentials — soft cashmere, sculpted tailoring, and quiet leather, made to keep.
+              A considered wardrobe of heirloom essentials — kente-inspired tailoring, hand-woven cotton, and quiet leather from Accra to the world.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/shop" className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-medium text-background shadow-glow transition-smooth hover:opacity-90">
