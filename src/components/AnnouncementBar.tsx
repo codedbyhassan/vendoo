@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Truck, Sparkles } from "lucide-react";
 
 const messages = [
-  { i: Truck, t: "Complimentary shipping over $200" },
+  { i: Truck, t: "Free delivery across Ghana over GH₵ 2,000" },
   { i: Sparkles, t: "Use code VENDOO10 for 10% off" },
-  { i: Truck, t: "Lifetime craftsmanship guarantee" },
+  { i: Truck, t: "Pay with MTN MoMo, Vodafone Cash & cards" },
 ];
 
 export function AnnouncementBar() {

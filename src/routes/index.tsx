@@ -38,14 +38,14 @@ function Page() {
           <div className="animate-fade-up">
             <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs">
               <Sparkles className="h-3 w-3 text-accent" />
-              <span className="text-muted-foreground">Autumn Edit · 2026</span>
+              <span className="text-muted-foreground">Harmattan Edit · Accra 2026</span>
             </div>
             <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
               Quiet luxury,<br />
-              <span className="italic text-cocoa">considered.</span>
+              <span className="italic text-cocoa">made in Ghana.</span>
             </h1>
             <p className="mt-6 max-w-md text-base text-muted-foreground md:text-lg">
-              A curated wardrobe of heirloom essentials — soft cashmere, sculpted tailoring, and quiet leather, made to keep.
+              A considered wardrobe of heirloom essentials — kente-inspired tailoring, hand-woven cotton, and quiet leather from Accra to the world.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/shop" className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-medium text-background shadow-glow transition-smooth hover:opacity-90">
@@ -62,7 +62,7 @@ function Page() {
             <div className="glass-strong absolute -bottom-6 -left-6 hidden rounded-2xl p-4 shadow-soft md:block">
               <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Featured</p>
               <p className="mt-1 font-display text-sm font-semibold">Camel Wool Coat</p>
-              <p className="text-xs text-muted-foreground">$520</p>
+              <p className="text-xs text-muted-foreground">GH₵ 6,240</p>
             </div>
           </div>
         </div>
@@ -72,9 +72,9 @@ function Page() {
       <section className="border-y border-border/60 bg-secondary/40">
         <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 sm:grid-cols-3">
           {[
-            { i: Truck, t: "Complimentary shipping", s: "On orders over $200" },
+            { i: Truck, t: "Free nationwide delivery", s: "On orders over GH₵ 2,000" },
             { i: Shield, t: "Lifetime craftsmanship", s: "Repaired or replaced" },
-            { i: Sparkles, t: "Considered materials", s: "Sourced with intention" },
+            { i: Sparkles, t: "Made for Ghana", s: "Designed in Accra · Worn worldwide" },
           ].map(({ i: Icon, t, s }) => (
             <div key={t} className="flex items-center gap-4">
               <div className="glass flex h-11 w-11 items-center justify-center rounded-full"><Icon className="h-4 w-4 text-accent" /></div>

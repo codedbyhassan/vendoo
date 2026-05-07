@@ -9,8 +9,9 @@ import { Minus, Plus, Trash2, ShoppingBag, AlertTriangle, Truck, Tag, Shield, Ro
 import { haptic } from "@/lib/haptics";
 import { toast } from "sonner";
 import { applyCoupon, COUPONS } from "@/lib/coupons";
+import { formatPrice, formatCedis, toCedis } from "@/lib/format";
 
-const FREE_SHIP = 200;
+const FREE_SHIP = 200; // base units (~ GH₵ 2,400)
 const COUPON_KEY = "vendoo-coupon";
 
 export const Route = createFileRoute("/cart")({
@@ -127,7 +128,7 @@ function CartPage() {
                               <Link to="/product/$id" params={{ id: i.product.id }} className="text-sm font-medium hover:underline">{i.product.name}</Link>
                               <p className="mt-1 text-xs text-muted-foreground">{[i.size && `Size ${i.size}`, i.color].filter(Boolean).join(" · ") || "—"}</p>
                             </div>
-                            <p className="text-sm font-medium">${i.product.price * i.qty}</p>
+                            <p className="text-sm font-medium">{formatPrice(i.product.price * i.qty)}</p>
                           </div>
                           {issue && (
                             <div className="mt-2 inline-flex items-center gap-1.5 self-start rounded-full bg-destructive/10 px-2.5 py-1 text-[11px] font-medium text-destructive">
@@ -177,10 +178,10 @@ function CartPage() {
                 </div>
 
                 <dl className="mt-4 space-y-2 border-t border-border/60 pt-4 text-sm">
-                  <div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd>${subtotal}</dd></div>
-                  {discount > 0 && <div className="flex justify-between text-accent-foreground"><dt className="text-accent-foreground/80">Discount</dt><dd>-${discount}</dd></div>}
-                  <div className="flex justify-between"><dt className="text-muted-foreground">Shipping</dt><dd>{shipping === 0 ? "Free" : `$${shipping}`}</dd></div>
-                  <div className="flex justify-between border-t border-border/60 pt-3 text-base font-semibold"><dt>Total</dt><dd>${total}</dd></div>
+                  <div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd>{formatPrice(subtotal)}</dd></div>
+                  {discount > 0 && <div className="flex justify-between text-accent-foreground"><dt className="text-accent-foreground/80">Discount</dt><dd>-{formatPrice(discount)}</dd></div>}
+                  <div className="flex justify-between"><dt className="text-muted-foreground">Shipping</dt><dd>{shipping === 0 ? "Free" : formatPrice(shipping)}</dd></div>
+                  <div className="flex justify-between border-t border-border/60 pt-3 text-base font-semibold"><dt>Total</dt><dd>{formatPrice(total)}</dd></div>
                 </dl>
 
                 <p className="mt-3 inline-flex items-center gap-1 text-[11px] text-muted-foreground"><Truck className="h-3 w-3" /> Est. delivery {eta}</p>

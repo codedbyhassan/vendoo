@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Search as SearchIcon, TrendingUp, Clock, X } from "lucide-react";
 import { useProducts } from "@/context/ProductStore";
+import { formatPrice } from "@/lib/format";
 
 const RECENT_KEY = "vendoo-recent-searches";
 const TRENDING = ["Cashmere", "Trench coat", "Sneakers", "Linen", "Tote bag"];
@@ -68,7 +69,7 @@ export function SearchPalette({ open, onClose }: { open: boolean; onClose: () =>
                         <p className="text-sm font-medium">{p.name}</p>
                         <p className="text-xs text-muted-foreground">{p.category}</p>
                       </div>
-                      <span className="text-sm font-medium">${p.price}</span>
+                      <span className="text-sm font-medium">{formatPrice(p.price)}</span>
                     </Link>
                   </li>
                 ))}

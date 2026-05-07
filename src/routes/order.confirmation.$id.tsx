@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import { useOrders } from "@/context/OrderContext";
 import { Check, Package, ArrowRight } from "lucide-react";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/order/confirmation/$id")({
   head: () => ({ meta: [{ title: "Order confirmed — Vendoo" }] }),
@@ -52,14 +53,14 @@ function Page() {
                     {[it.size && `Size ${it.size}`, it.color, `Qty ${it.qty}`].filter(Boolean).join(" · ")}
                   </span>
                 </div>
-                <span className="text-sm font-medium">${it.price * it.qty}</span>
+                <span className="text-sm font-medium">{formatPrice(it.price * it.qty)}</span>
               </li>
             ))}
           </ul>
           <dl className="mt-6 space-y-2 border-t border-border/60 pt-4 text-sm">
-            <div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd>${order.subtotal}</dd></div>
-            <div className="flex justify-between"><dt className="text-muted-foreground">Shipping</dt><dd>{order.shipping === 0 ? "Free" : `$${order.shipping}`}</dd></div>
-            <div className="flex justify-between border-t border-border/60 pt-2 text-base font-semibold"><dt>Total paid</dt><dd>${order.total}</dd></div>
+            <div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd>{formatPrice(order.subtotal)}</dd></div>
+            <div className="flex justify-between"><dt className="text-muted-foreground">Shipping</dt><dd>{order.shipping === 0 ? "Free" : formatPrice(order.shipping)}</dd></div>
+            <div className="flex justify-between border-t border-border/60 pt-2 text-base font-semibold"><dt>Total paid</dt><dd>{formatPrice(order.total)}</dd></div>
           </dl>
         </div>
 

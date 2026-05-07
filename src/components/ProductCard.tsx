@@ -1,17 +1,17 @@
 import { Link } from "@tanstack/react-router";
-import { Heart, ShoppingBag, SlidersHorizontal } from "lucide-react";
+import { Heart, ShoppingBag } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Product } from "@/lib/products";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
 import { toast } from "sonner";
 import { haptic } from "@/lib/haptics";
+import { formatPrice } from "@/lib/format";
 
 export function ProductCard({ product }: { product: Product }) {
   const { has, toggle } = useWishlist();
   const { add } = useCart();
   const wished = has(product.id);
-  const requiresConfig = (product.sizes?.length ?? 0) > 0 || (product.colors?.length ?? 0) > 1;
   const outOfStock = (product.stock ?? 0) <= 0;
 
   const onWish = (e: React.MouseEvent) => {
@@ -25,14 +25,16 @@ export function ProductCard({ product }: { product: Product }) {
   const onAdd = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (requiresConfig) return;
     if (outOfStock) {
       haptic("warning");
       toast.warning("Out of stock", { description: product.name });
       return;
     }
     haptic("success");
-    add(product, { color: product.colors?.[0]?.name });
+    add(product, {
+      color: product.colors?.[0]?.name,
+      size: product.sizes?.[Math.floor((product.sizes.length - 1) / 2)],
+    });
     toast.success("Added to bag", { description: product.name });
   };
 
@@ -74,22 +76,15 @@ export function ProductCard({ product }: { product: Product }) {
 
           {/* Bottom action */}
           <div className="absolute inset-x-3 bottom-3 translate-y-2 opacity-0 transition-smooth group-hover:translate-y-0 group-hover:opacity-100">
-            {requiresConfig ? (
-              <div className="glass-strong flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-xs font-medium">
-                <SlidersHorizontal className="h-3.5 w-3.5" />
-                Configure
-              </div>
-            ) : (
-              <motion.button
-                whileTap={{ scale: 0.96 }}
-                onClick={onAdd}
-                disabled={outOfStock}
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-xs font-medium text-background transition-smooth hover:opacity-90 disabled:opacity-50"
-              >
-                <ShoppingBag className="h-3.5 w-3.5" />
-                {outOfStock ? "Sold out" : "Add to bag"}
-              </motion.button>
-            )}
+            <motion.button
+              whileTap={{ scale: 0.96 }}
+              onClick={onAdd}
+              disabled={outOfStock}
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-xs font-medium text-background transition-smooth hover:opacity-90 disabled:opacity-50"
+            >
+              <ShoppingBag className="h-3.5 w-3.5" />
+              {outOfStock ? "Sold out" : "Add to bag"}
+            </motion.button>
           </div>
         </div>
       </Link>
@@ -111,7 +106,7 @@ export function ProductCard({ product }: { product: Product }) {
             </div>
           )}
         </div>
-        <p className="text-sm font-medium">${product.price}</p>
+        <p className="text-sm font-medium">{formatPrice(product.price)}</p>
       </Link>
     </motion.div>
   );

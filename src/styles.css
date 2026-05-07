@@ -104,6 +104,9 @@
   --ring: oklch(0.78 0.09 55);
   --glass-bg: oklch(0.2 0.012 60 / 0.55);
   --glass-border: oklch(1 0 0 / 0.1);
+  --gradient-warm: linear-gradient(135deg, oklch(0.24 0.018 60), oklch(0.2 0.025 50));
+  --gradient-hero: radial-gradient(at 30% 20%, oklch(0.22 0.02 60) 0%, oklch(0.18 0.015 60) 50%, oklch(0.16 0.012 60) 100%);
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.3), 0 8px 24px -8px oklch(0 0 0 / 0.4);
 }
 
 @layer base {

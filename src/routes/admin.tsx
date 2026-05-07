@@ -52,7 +52,7 @@ function Page() {
 
   const revenue = orders.reduce((s, o) => s + (o.status !== "cancelled" ? o.total : 0), 0);
   const stats = [
-    { i: DollarSign, l: "Revenue", v: `$${revenue.toLocaleString()}`, d: `${orders.length} orders` },
+    { i: DollarSign, l: "Revenue", v: `GH₵ ${(revenue * 12).toLocaleString()}`, d: `${orders.length} orders` },
     { i: ShoppingBag, l: "Orders", v: orders.length, d: "All time" },
     { i: Package, l: "Products", v: products.length, d: "Live" },
     { i: TrendingUp, l: "Pending", v: orders.filter((o) => o.status === "processing" || o.status === "paid").length, d: "Need action" },
@@ -253,7 +253,7 @@ function Page() {
                         </div>
                       </td>
                       <td className="p-4 text-muted-foreground">{p.category}</td>
-                      <td className="p-4">${p.price}</td>
+                      <td className="p-4">GH₵ {(p.price * 12).toLocaleString()}</td>
                       <td className="p-4 text-muted-foreground">{p.stock ?? "—"}</td>
                       <td className="p-4">
                         <div className="flex justify-end gap-2">

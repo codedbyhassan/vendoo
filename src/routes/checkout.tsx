@@ -9,6 +9,7 @@ import { haptic } from "@/lib/haptics";
 import { toast } from "sonner";
 import { Lock, CreditCard, Check, Tag } from "lucide-react";
 import { applyCoupon } from "@/lib/coupons";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({ meta: [{ title: "Checkout — Vendoo" }] }),
@@ -117,8 +118,8 @@ function Page() {
                   <Input label="First name" required value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} />
                   <Input label="Last name" required value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} />
                   <Input label="Address" required className="sm:col-span-2" value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} />
-                  <Input label="City" required value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
-                  <Input label="Postal code" required value={form.postal} onChange={(e) => setForm({ ...form, postal: e.target.value })} />
+                  <Input label="City" required placeholder="Accra" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
+                  <Input label="Region / Postal" required placeholder="Greater Accra" value={form.postal} onChange={(e) => setForm({ ...form, postal: e.target.value })} />
                 </div>
               ) : (
                 <button type="button" onClick={() => setStep(1)} className="text-xs text-muted-foreground underline">Edit</button>
@@ -132,12 +133,12 @@ function Page() {
               {step === 2 && (
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="sm:col-span-2 relative">
-                    <Input label="Card number" placeholder="4242 4242 4242 4242" required defaultValue="4242 4242 4242 4242" />
+                    <Input label="Card or Mobile Money number" placeholder="MTN MoMo · 024 123 4567" required defaultValue="0241 234 567" />
                     <CreditCard className="absolute right-4 top-9 h-4 w-4 text-muted-foreground" />
                   </div>
-                  <Input label="Expiry" placeholder="MM / YY" required defaultValue="12 / 28" />
-                  <Input label="CVC" placeholder="123" required defaultValue="123" />
-                  <p className="sm:col-span-2 text-xs text-muted-foreground">Demo mode — any card details accepted.</p>
+                  <Input label="Expiry / Network" placeholder="MTN · 12/28" required defaultValue="MTN MoMo" />
+                  <Input label="PIN / CVC" placeholder="1234" required defaultValue="1234" />
+                  <p className="sm:col-span-2 text-xs text-muted-foreground">Demo mode — Card, MTN MoMo, Vodafone Cash & AirtelTigo Money supported.</p>
                 </div>
               )}
             </div>
@@ -145,7 +146,7 @@ function Page() {
             <div className="flex items-center justify-between">
               <Link to="/shop" className="text-sm text-muted-foreground hover:text-foreground">← Continue shopping</Link>
               <button disabled={submitting} className="inline-flex h-12 items-center rounded-full bg-foreground px-8 text-sm font-medium text-background shadow-glow transition-smooth hover:opacity-90 disabled:opacity-60">
-                {submitting ? "Processing..." : step === 1 ? "Continue to payment" : `Pay $${total}`}
+                {submitting ? "Processing..." : step === 1 ? "Continue to payment" : `Pay ${formatPrice(total)}`}
               </button>
             </div>
           </form>
@@ -162,15 +163,15 @@ function Page() {
                       {[i.size && `Size ${i.size}`, i.color, `Qty ${i.qty}`].filter(Boolean).join(" · ")}
                     </span>
                   </div>
-                  <span className="text-sm">${i.product.price * i.qty}</span>
+                  <span className="text-sm">{formatPrice(i.product.price * i.qty)}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-4 space-y-2 border-t border-border/60 pt-4 text-sm">
-              <Row label="Subtotal" v={`$${subtotal}`} />
-              {discount > 0 && <Row label={`Discount${applied.coupon ? ` (${applied.coupon.code})` : ""}`} v={`-$${discount}`} />}
-              <Row label="Shipping" v={shipping === 0 ? "Free" : `$${shipping}`} />
-              <Row label="Total" v={`$${total}`} bold />
+              <Row label="Subtotal" v={formatPrice(subtotal)} />
+              {discount > 0 && <Row label={`Discount${applied.coupon ? ` (${applied.coupon.code})` : ""}`} v={`-${formatPrice(discount)}`} />}
+              <Row label="Shipping" v={shipping === 0 ? "Free" : formatPrice(shipping)} />
+              <Row label="Total" v={formatPrice(total)} bold />
               {applied.coupon && (
                 <p className="mt-2 inline-flex items-center gap-1 text-[11px] text-muted-foreground"><Tag className="h-3 w-3" /> {applied.coupon.label} applied</p>
               )}

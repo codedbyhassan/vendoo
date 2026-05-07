@@ -9,6 +9,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRecentlyViewed } from "@/context/RecentlyViewedContext";
 import { Check, ChevronLeft, Heart, Edit, ShoppingBag, Truck, RotateCcw, Ruler, X, ZoomIn } from "lucide-react";
 import { toast } from "sonner";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/product/$id")({
   head: ({ params }) => ({ meta: [{ title: `Product · Vendoo` }, { name: "description", content: "View product on Vendoo" }, { property: "og:title", content: `Product ${params.id} — Vendoo` }] }),
@@ -77,9 +78,9 @@ function Page() {
   };
 
   const eta = useMemo(() => {
-    const start = new Date(Date.now() + 1000 * 60 * 60 * 24 * 3);
-    const end = new Date(Date.now() + 1000 * 60 * 60 * 24 * 6);
-    const fmt = (d: Date) => d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    const start = new Date(Date.now() + 1000 * 60 * 60 * 24 * 2);
+    const end = new Date(Date.now() + 1000 * 60 * 60 * 24 * 5);
+    const fmt = (d: Date) => d.toLocaleDateString("en-GH", { month: "short", day: "numeric" });
     return `${fmt(start)} – ${fmt(end)}`;
   }, []);
 
@@ -135,10 +136,10 @@ function Page() {
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{product.category}</p>
             <h1 className="mt-2 font-display text-4xl font-semibold md:text-5xl">{product.name}</h1>
             <div className="mt-4 flex items-baseline gap-3">
-              <p className="text-2xl">${product.price}</p>
+              <p className="text-2xl">{formatPrice(product.price)}</p>
               {product.compareAtPrice && (
                 <>
-                  <p className="text-base text-muted-foreground line-through">${product.compareAtPrice}</p>
+                  <p className="text-base text-muted-foreground line-through">{formatPrice(product.compareAtPrice)}</p>
                   <span className="rounded-full bg-destructive/15 px-2 py-0.5 text-[11px] font-medium text-destructive">
                     -{Math.round(((product.compareAtPrice - product.price) / product.compareAtPrice) * 100)}%
                   </span>
@@ -178,7 +179,7 @@ function Page() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button onClick={handleAdd} disabled={outOfStock} className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-full bg-foreground text-sm font-medium text-background shadow-glow transition-smooth hover:opacity-90 disabled:opacity-50">
-                <ShoppingBag className="h-4 w-4" /> {outOfStock ? "Sold out" : `Add to bag · $${product.price}`}
+                <ShoppingBag className="h-4 w-4" /> {outOfStock ? "Sold out" : `Add to bag · ${formatPrice(product.price)}`}
               </button>
               <button onClick={() => toggle(product.id)} className={`inline-flex h-14 items-center justify-center gap-2 rounded-full border px-6 text-sm font-medium transition-smooth ${wished ? "border-accent bg-accent/15 text-foreground" : "border-border hover:bg-secondary"}`}>
                 <Heart className={`h-4 w-4 ${wished ? "fill-accent text-accent" : ""}`} />{wished ? "Saved" : "Wishlist"}
@@ -192,7 +193,7 @@ function Page() {
             <div className="mt-6 grid grid-cols-2 gap-3">
               <div className="glass rounded-2xl p-4">
                 <Truck className="h-4 w-4 text-accent" />
-                <p className="mt-2 text-xs font-medium">Free shipping over $200</p>
+                <p className="mt-2 text-xs font-medium">Free delivery over GH₵ 2,000</p>
                 <p className="text-[11px] text-muted-foreground">Est. delivery {eta}</p>
               </div>
               <div className="glass rounded-2xl p-4">
@@ -218,7 +219,7 @@ function Page() {
               </Accordion>
             )}
             <Accordion title="Shipping & returns">
-              <p className="text-sm text-muted-foreground">Complimentary shipping on orders over $200. Free returns within 30 days. Estimated delivery {eta}.</p>
+              <p className="text-sm text-muted-foreground">Complimentary nationwide delivery on orders over GH₵ 2,000. Free returns within 30 days. Estimated delivery {eta} (Accra & Kumasi 1–2 days).</p>
             </Accordion>
           </div>
         </div>
