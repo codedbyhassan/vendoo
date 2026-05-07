@@ -118,8 +118,8 @@ function Page() {
                   <Input label="First name" required value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} />
                   <Input label="Last name" required value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} />
                   <Input label="Address" required className="sm:col-span-2" value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })} />
-                  <Input label="City" required value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
-                  <Input label="Postal code" required value={form.postal} onChange={(e) => setForm({ ...form, postal: e.target.value })} />
+                  <Input label="City" required placeholder="Accra" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
+                  <Input label="Region / Postal" required placeholder="Greater Accra" value={form.postal} onChange={(e) => setForm({ ...form, postal: e.target.value })} />
                 </div>
               ) : (
                 <button type="button" onClick={() => setStep(1)} className="text-xs text-muted-foreground underline">Edit</button>
