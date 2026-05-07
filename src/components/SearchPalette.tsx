@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Search as SearchIcon, TrendingUp, Clock, X } from "lucide-react";
 import { useProducts } from "@/context/ProductStore";
+import { formatPrice } from "@/lib/format";
 
 const RECENT_KEY = "vendoo-recent-searches";
 const TRENDING = ["Cashmere", "Trench coat", "Sneakers", "Linen", "Tote bag"];
