@@ -5,12 +5,13 @@ export function Footer() {
         <div>
           <h3 className="font-display text-lg font-semibold">Vendoo<span className="text-accent">.</span></h3>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-            Considered essentials, made with care for the wardrobe you keep forever.
+            Considered essentials, designed in Accra. The wardrobe you keep forever.
           </p>
+          <p className="mt-3 text-xs text-muted-foreground">📍 Osu, Accra · Ghana</p>
         </div>
         {[
           { t: "Shop", l: ["New Arrivals","Outerwear","Knitwear","Accessories"] },
-          { t: "Help", l: ["Shipping","Returns","Size Guide","Contact"] },
+          { t: "Help", l: ["Delivery (Ghana)","Returns","Size Guide","WhatsApp us"] },
           { t: "Company", l: ["About","Sustainability","Journal","Press"] },
         ].map((c) => (
           <div key={c.t}>
