@@ -178,10 +178,10 @@ function CartPage() {
                 </div>
 
                 <dl className="mt-4 space-y-2 border-t border-border/60 pt-4 text-sm">
-                  <div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd>${subtotal}</dd></div>
-                  {discount > 0 && <div className="flex justify-between text-accent-foreground"><dt className="text-accent-foreground/80">Discount</dt><dd>-${discount}</dd></div>}
-                  <div className="flex justify-between"><dt className="text-muted-foreground">Shipping</dt><dd>{shipping === 0 ? "Free" : `$${shipping}`}</dd></div>
-                  <div className="flex justify-between border-t border-border/60 pt-3 text-base font-semibold"><dt>Total</dt><dd>${total}</dd></div>
+                  <div className="flex justify-between"><dt className="text-muted-foreground">Subtotal</dt><dd>{formatPrice(subtotal)}</dd></div>
+                  {discount > 0 && <div className="flex justify-between text-accent-foreground"><dt className="text-accent-foreground/80">Discount</dt><dd>-{formatPrice(discount)}</dd></div>}
+                  <div className="flex justify-between"><dt className="text-muted-foreground">Shipping</dt><dd>{shipping === 0 ? "Free" : formatPrice(shipping)}</dd></div>
+                  <div className="flex justify-between border-t border-border/60 pt-3 text-base font-semibold"><dt>Total</dt><dd>{formatPrice(total)}</dd></div>
                 </dl>
 
                 <p className="mt-3 inline-flex items-center gap-1 text-[11px] text-muted-foreground"><Truck className="h-3 w-3" /> Est. delivery {eta}</p>
