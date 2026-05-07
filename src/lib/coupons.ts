@@ -3,7 +3,7 @@ export type Coupon = { code: string; type: "percent" | "fixed" | "freeship"; val
 export const COUPONS: Coupon[] = [
   { code: "VENDOO10", type: "percent", value: 10, label: "10% off" },
   { code: "WELCOME20", type: "percent", value: 20, label: "20% off your first order" },
-  { code: "SAVE50", type: "fixed", value: 50, label: "$50 off" },
+  { code: "SAVE50", type: "fixed", value: 50, label: "GH₵ 600 off" },
   { code: "FREESHIP", type: "freeship", value: 0, label: "Free shipping" },
 ];
 
