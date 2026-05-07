@@ -76,22 +76,15 @@ export function ProductCard({ product }: { product: Product }) {
 
           {/* Bottom action */}
           <div className="absolute inset-x-3 bottom-3 translate-y-2 opacity-0 transition-smooth group-hover:translate-y-0 group-hover:opacity-100">
-            {requiresConfig ? (
-              <div className="glass-strong flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-xs font-medium">
-                <SlidersHorizontal className="h-3.5 w-3.5" />
-                Configure
-              </div>
-            ) : (
-              <motion.button
-                whileTap={{ scale: 0.96 }}
-                onClick={onAdd}
-                disabled={outOfStock}
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-xs font-medium text-background transition-smooth hover:opacity-90 disabled:opacity-50"
-              >
-                <ShoppingBag className="h-3.5 w-3.5" />
-                {outOfStock ? "Sold out" : "Add to bag"}
-              </motion.button>
-            )}
+            <motion.button
+              whileTap={{ scale: 0.96 }}
+              onClick={onAdd}
+              disabled={outOfStock}
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-xs font-medium text-background transition-smooth hover:opacity-90 disabled:opacity-50"
+            >
+              <ShoppingBag className="h-3.5 w-3.5" />
+              {outOfStock ? "Sold out" : "Add to bag"}
+            </motion.button>
           </div>
         </div>
       </Link>
