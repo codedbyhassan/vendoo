@@ -163,15 +163,15 @@ function Page() {
                       {[i.size && `Size ${i.size}`, i.color, `Qty ${i.qty}`].filter(Boolean).join(" · ")}
                     </span>
                   </div>
-                  <span className="text-sm">${i.product.price * i.qty}</span>
+                  <span className="text-sm">{formatPrice(i.product.price * i.qty)}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-4 space-y-2 border-t border-border/60 pt-4 text-sm">
-              <Row label="Subtotal" v={`$${subtotal}`} />
-              {discount > 0 && <Row label={`Discount${applied.coupon ? ` (${applied.coupon.code})` : ""}`} v={`-$${discount}`} />}
-              <Row label="Shipping" v={shipping === 0 ? "Free" : `$${shipping}`} />
-              <Row label="Total" v={`$${total}`} bold />
+              <Row label="Subtotal" v={formatPrice(subtotal)} />
+              {discount > 0 && <Row label={`Discount${applied.coupon ? ` (${applied.coupon.code})` : ""}`} v={`-${formatPrice(discount)}`} />}
+              <Row label="Shipping" v={shipping === 0 ? "Free" : formatPrice(shipping)} />
+              <Row label="Total" v={formatPrice(total)} bold />
               {applied.coupon && (
                 <p className="mt-2 inline-flex items-center gap-1 text-[11px] text-muted-foreground"><Tag className="h-3 w-3" /> {applied.coupon.label} applied</p>
               )}
