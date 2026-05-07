@@ -1,17 +1,17 @@
 import { Link } from "@tanstack/react-router";
-import { Heart, ShoppingBag, SlidersHorizontal } from "lucide-react";
+import { Heart, ShoppingBag } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Product } from "@/lib/products";
 import { useWishlist } from "@/context/WishlistContext";
 import { useCart } from "@/context/CartContext";
 import { toast } from "sonner";
 import { haptic } from "@/lib/haptics";
+import { formatPrice } from "@/lib/format";
 
 export function ProductCard({ product }: { product: Product }) {
   const { has, toggle } = useWishlist();
   const { add } = useCart();
   const wished = has(product.id);
-  const requiresConfig = (product.sizes?.length ?? 0) > 0 || (product.colors?.length ?? 0) > 1;
   const outOfStock = (product.stock ?? 0) <= 0;
 
   const onWish = (e: React.MouseEvent) => {
