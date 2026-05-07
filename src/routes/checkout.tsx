@@ -133,12 +133,12 @@ function Page() {
               {step === 2 && (
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="sm:col-span-2 relative">
-                    <Input label="Card number" placeholder="4242 4242 4242 4242" required defaultValue="4242 4242 4242 4242" />
+                    <Input label="Card or Mobile Money number" placeholder="MTN MoMo · 024 123 4567" required defaultValue="0241 234 567" />
                     <CreditCard className="absolute right-4 top-9 h-4 w-4 text-muted-foreground" />
                   </div>
-                  <Input label="Expiry" placeholder="MM / YY" required defaultValue="12 / 28" />
-                  <Input label="CVC" placeholder="123" required defaultValue="123" />
-                  <p className="sm:col-span-2 text-xs text-muted-foreground">Demo mode — any card details accepted.</p>
+                  <Input label="Expiry / Network" placeholder="MTN · 12/28" required defaultValue="MTN MoMo" />
+                  <Input label="PIN / CVC" placeholder="1234" required defaultValue="1234" />
+                  <p className="sm:col-span-2 text-xs text-muted-foreground">Demo mode — Card, MTN MoMo, Vodafone Cash & AirtelTigo Money supported.</p>
                 </div>
               )}
             </div>
