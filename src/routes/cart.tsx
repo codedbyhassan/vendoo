@@ -9,8 +9,9 @@ import { Minus, Plus, Trash2, ShoppingBag, AlertTriangle, Truck, Tag, Shield, Ro
 import { haptic } from "@/lib/haptics";
 import { toast } from "sonner";
 import { applyCoupon, COUPONS } from "@/lib/coupons";
+import { formatPrice, formatCedis, toCedis } from "@/lib/format";
 
-const FREE_SHIP = 200;
+const FREE_SHIP = 200; // base units (~ GH₵ 2,400)
 const COUPON_KEY = "vendoo-coupon";
 
 export const Route = createFileRoute("/cart")({
