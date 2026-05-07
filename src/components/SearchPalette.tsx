@@ -69,7 +69,7 @@ export function SearchPalette({ open, onClose }: { open: boolean; onClose: () =>
                         <p className="text-sm font-medium">{p.name}</p>
                         <p className="text-xs text-muted-foreground">{p.category}</p>
                       </div>
-                      <span className="text-sm font-medium">${p.price}</span>
+                      <span className="text-sm font-medium">{formatPrice(p.price)}</span>
                     </Link>
                   </li>
                 ))}
