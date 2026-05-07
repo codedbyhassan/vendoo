@@ -9,6 +9,7 @@ import { haptic } from "@/lib/haptics";
 import { toast } from "sonner";
 import { Lock, CreditCard, Check, Tag } from "lucide-react";
 import { applyCoupon } from "@/lib/coupons";
+import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/checkout")({
   head: () => ({ meta: [{ title: "Checkout — Vendoo" }] }),
