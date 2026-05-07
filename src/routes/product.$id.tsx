@@ -219,7 +219,7 @@ function Page() {
               </Accordion>
             )}
             <Accordion title="Shipping & returns">
-              <p className="text-sm text-muted-foreground">Complimentary shipping on orders over $200. Free returns within 30 days. Estimated delivery {eta}.</p>
+              <p className="text-sm text-muted-foreground">Complimentary nationwide delivery on orders over GH₵ 2,000. Free returns within 30 days. Estimated delivery {eta} (Accra & Kumasi 1–2 days).</p>
             </Accordion>
           </div>
         </div>
