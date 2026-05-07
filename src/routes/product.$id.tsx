@@ -179,7 +179,7 @@ function Page() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button onClick={handleAdd} disabled={outOfStock} className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-full bg-foreground text-sm font-medium text-background shadow-glow transition-smooth hover:opacity-90 disabled:opacity-50">
-                <ShoppingBag className="h-4 w-4" /> {outOfStock ? "Sold out" : `Add to bag · $${product.price}`}
+                <ShoppingBag className="h-4 w-4" /> {outOfStock ? "Sold out" : `Add to bag · ${formatPrice(product.price)}`}
               </button>
               <button onClick={() => toggle(product.id)} className={`inline-flex h-14 items-center justify-center gap-2 rounded-full border px-6 text-sm font-medium transition-smooth ${wished ? "border-accent bg-accent/15 text-foreground" : "border-border hover:bg-secondary"}`}>
                 <Heart className={`h-4 w-4 ${wished ? "fill-accent text-accent" : ""}`} />{wished ? "Saved" : "Wishlist"}
