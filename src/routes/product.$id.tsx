@@ -10,11 +10,31 @@ import { useRecentlyViewed } from "@/context/RecentlyViewedContext";
 import { Check, ChevronLeft, Heart, Edit, ShoppingBag, Truck, RotateCcw, Ruler, X, ZoomIn } from "lucide-react";
 import { toast } from "sonner";
 import { formatPrice } from "@/lib/format";
+import { PRODUCTS } from "@/lib/products";
 
 export const Route = createFileRoute("/product/$id")({
-  head: ({ params }) => ({ meta: [{ title: `Product · Vendoo` }, { name: "description", content: "View product on Vendoo" }, { property: "og:title", content: `Product ${params.id} — Vendoo` }] }),
+  head: ({ params }) => {
+    const p = PRODUCTS.find((x) => x.id === params.id);
+    const title = p ? `${p.name} — Vendoo` : "Product — Vendoo";
+    const description = p
+      ? `${p.name} · ${p.category} · ${formatPrice(p.price)}. ${p.description ?? "Considered essentials, made in and for Ghana."}`.slice(0, 155)
+      : "Browse considered wardrobe essentials at Vendoo.";
+    const meta: Array<Record<string, string>> = [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "product" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ];
+    if (p?.image?.startsWith("https://")) {
+      meta.push({ property: "og:image", content: p.image }, { name: "twitter:image", content: p.image });
+    }
+    return { meta };
+  },
   component: Page,
 });
+
 
 const SIZE_CHART = {
   letters: [

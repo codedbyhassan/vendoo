@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { ProductCard } from "@/components/ProductCard";
 import { useCart } from "@/context/CartContext";
@@ -24,8 +24,14 @@ function CartPage() {
   const { get, products } = useProducts();
   const navigate = useNavigate();
   const baseShipping = subtotal > FREE_SHIP || subtotal === 0 ? 0 : 15;
-  const [code, setCode] = useState<string>(() => (typeof localStorage !== "undefined" && localStorage.getItem(COUPON_KEY)) || "");
+  const [code, setCode] = useState<string>("");
   const [draft, setDraft] = useState("");
+
+  // Read the persisted coupon after mount to keep SSR and client markup identical.
+  useEffect(() => {
+    try { setCode(localStorage.getItem(COUPON_KEY) || ""); } catch {}
+  }, []);
+
 
   const applied = useMemo(() => applyCoupon(subtotal, baseShipping, code || null), [subtotal, baseShipping, code]);
   const discount = applied.discount;

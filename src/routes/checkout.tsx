@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
@@ -34,8 +34,12 @@ function Page() {
   });
 
   const baseShipping = subtotal > 200 || subtotal === 0 ? 0 : 15;
-  const couponCode = typeof localStorage !== "undefined" ? localStorage.getItem("vendoo-coupon") : null;
+  const [couponCode, setCouponCode] = useState<string | null>(null);
+  useEffect(() => {
+    try { setCouponCode(localStorage.getItem("vendoo-coupon")); } catch {}
+  }, []);
   const applied = applyCoupon(subtotal, baseShipping, couponCode);
+
   const discount = applied.discount;
   const shipping = applied.shipping;
   const total = Math.max(0, subtotal - discount + shipping);

@@ -1,4 +1,7 @@
+import { MapPin } from "lucide-react";
+
 export function Footer() {
+
   return (
     <footer className="border-t border-border/60 bg-secondary/40">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-4">
@@ -7,7 +10,7 @@ export function Footer() {
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             Considered essentials, designed in Accra. The wardrobe you keep forever.
           </p>
-          <p className="mt-3 text-xs text-muted-foreground">📍 Osu, Accra · Ghana</p>
+          <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-muted-foreground"><MapPin className="h-3 w-3" /> Osu, Accra · Ghana</p>
         </div>
         {[
           { t: "Shop", l: ["New Arrivals","Outerwear","Knitwear","Accessories"] },
