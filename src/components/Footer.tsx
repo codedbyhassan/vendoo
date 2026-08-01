@@ -7,7 +7,7 @@ export function Footer() {
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             Considered essentials, designed in Accra. The wardrobe you keep forever.
           </p>
-          <p className="mt-3 text-xs text-muted-foreground">📍 Osu, Accra · Ghana</p>
+          <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-muted-foreground"><MapPin className="h-3 w-3" /> Osu, Accra · Ghana</p>
         </div>
         {[
           { t: "Shop", l: ["New Arrivals","Outerwear","Knitwear","Accessories"] },
