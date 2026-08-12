@@ -28,9 +28,9 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vendoo — Considered Essentials" },
-      { name: "description", content: "Vendoo crafts considered wardrobe essentials — heirloom-quality knitwear, outerwear, and accessories." },
-      { property: "og:title", content: "Vendoo — Considered Essentials" },
+      { title: "Vendooo — Considered Essentials" },
+      { name: "description", content: "Vendooo crafts considered wardrobe essentials — heirloom-quality knitwear, outerwear, and accessories." },
+      { property: "og:title", content: "Vendooo — Considered Essentials" },
       { property: "og:description", content: "Considered wardrobe essentials, made to keep." },
       { property: "og:type", content: "website" },
     ],

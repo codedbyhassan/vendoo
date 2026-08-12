@@ -7,7 +7,7 @@ import { useOrders, type OrderStatus } from "@/context/OrderContext";
 import { Package } from "lucide-react";
 
 export const Route = createFileRoute("/orders")({
-  head: () => ({ meta: [{ title: "My orders — Vendoo" }] }),
+  head: () => ({ meta: [{ title: "My orders — Vendooo" }] }),
   component: Page,
 });
 

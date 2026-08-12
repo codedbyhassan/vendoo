@@ -4,7 +4,7 @@ import { Search as SearchIcon, TrendingUp, Clock, X } from "lucide-react";
 import { useProducts } from "@/context/ProductStore";
 import { formatPrice } from "@/lib/format";
 
-const RECENT_KEY = "vendoo-recent-searches";
+const RECENT_KEY = "vendooo-recent-searches";
 const TRENDING = ["Cashmere", "Trench coat", "Sneakers", "Linen", "Tote bag"];
 
 export function SearchPalette({ open, onClose }: { open: boolean; onClose: () => void }) {

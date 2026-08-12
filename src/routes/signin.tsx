@@ -10,7 +10,7 @@ import { ShieldCheck } from "lucide-react";
 const schema = z.object({ redirect: fallback(z.string(), "/").default("/") });
 
 export const Route = createFileRoute("/signin")({
-  head: () => ({ meta: [{ title: "Sign in — Vendoo" }] }),
+  head: () => ({ meta: [{ title: "Sign in — Vendooo" }] }),
   validateSearch: zodValidator(schema),
   component: Page,
 });

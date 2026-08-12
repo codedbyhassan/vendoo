@@ -15,9 +15,9 @@ export const Route = createFileRoute("/collections/$slug")({
     const c = loaderData?.collection;
     return {
       meta: [
-        { title: `${c?.name ?? "Collection"} — Vendoo` },
-        { name: "description", content: c?.tagline ?? "Vendoo collection" },
-        { property: "og:title", content: `${c?.name} — Vendoo` },
+        { title: `${c?.name ?? "Collection"} — Vendooo` },
+        { name: "description", content: c?.tagline ?? "Vendooo collection" },
+        { property: "og:title", content: `${c?.name} — Vendooo` },
         { property: "og:description", content: c?.tagline ?? "" },
         ...(c?.hero ? [{ property: "og:image" as const, content: c.hero }] : []),
       ],

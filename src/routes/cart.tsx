@@ -15,7 +15,7 @@ const FREE_SHIP = 200; // base units (~ GH₵ 2,400)
 const COUPON_KEY = "vendoo-coupon";
 
 export const Route = createFileRoute("/cart")({
-  head: () => ({ meta: [{ title: "Your bag — Vendoo" }] }),
+  head: () => ({ meta: [{ title: "Your bag — Vendooo" }] }),
   component: CartPage,
 });
 

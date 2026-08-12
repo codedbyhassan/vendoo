@@ -12,9 +12,9 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/lookbook")({
   head: () => ({
     meta: [
-      { title: "Lookbook — Vendoo" },
-      { name: "description", content: "Editorial stories from the Vendoo studio — Tokyo Streetwear, Summer Essentials, Minimal Fits and Luxury Neutral." },
-      { property: "og:title", content: "Lookbook — Vendoo" },
+      { title: "Lookbook — Vendooo" },
+      { name: "description", content: "Editorial stories from the Vendooo studio — Tokyo Streetwear, Summer Essentials, Minimal Fits and Luxury Neutral." },
+      { property: "og:title", content: "Lookbook — Vendooo" },
       { property: "og:image", content: p6 },
     ],
   }),

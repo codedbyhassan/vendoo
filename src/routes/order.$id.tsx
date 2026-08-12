@@ -9,7 +9,7 @@ import { Check, Package, Truck, Sparkles, CreditCard } from "lucide-react";
 import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/order/$id")({
-  head: ({ params }) => ({ meta: [{ title: `Order ${params.id} — Vendoo` }] }),
+  head: ({ params }) => ({ meta: [{ title: `Order ${params.id} — Vendooo` }] }),
   component: Page,
 });
 

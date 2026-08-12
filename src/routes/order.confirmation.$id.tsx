@@ -5,7 +5,7 @@ import { Check, Package, ArrowRight } from "lucide-react";
 import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/order/confirmation/$id")({
-  head: () => ({ meta: [{ title: "Order confirmed — Vendoo" }] }),
+  head: () => ({ meta: [{ title: "Order confirmed — Vendooo" }] }),
   component: Page,
 });
 

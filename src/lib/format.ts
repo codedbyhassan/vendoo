@@ -1,4 +1,4 @@
-// Vendoo prices are stored as base units; we display in Ghana Cedis (GH₵).
+// Vendooo prices are stored as base units; we display in Ghana Cedis (GH₵).
 // Multiplier converts the base catalog values into realistic local prices.
 export const PRICE_MULTIPLIER = 12;
 export const CURRENCY_SYMBOL = "GH₵";

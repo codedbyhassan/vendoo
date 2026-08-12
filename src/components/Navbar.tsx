@@ -38,7 +38,7 @@ export function Navbar() {
         <div className="glass-strong border-b border-border/40">
           <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
             <Link to="/" className="font-display text-xl font-semibold tracking-tight">
-              Vendoo<span className="text-accent">.</span>
+              Vendooo<span className="text-accent">.</span>
             </Link>
             <nav className="hidden items-center gap-8 md:flex">
               {link("/", "Home")}

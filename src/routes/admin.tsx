@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { haptic } from "@/lib/haptics";
 
 export const Route = createFileRoute("/admin")({
-  head: () => ({ meta: [{ title: "Admin — Vendoo" }] }),
+  head: () => ({ meta: [{ title: "Admin — Vendooo" }] }),
   component: Page,
 });
 

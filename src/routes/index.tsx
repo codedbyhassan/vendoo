@@ -9,9 +9,9 @@ import { Countdown } from "@/components/Countdown";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vendoo — Considered Essentials" },
+      { title: "Vendooo — Considered Essentials" },
       { name: "description", content: "Heirloom-quality wardrobe essentials, considered and crafted to keep." },
-      { property: "og:title", content: "Vendoo — Considered Essentials" },
+      { property: "og:title", content: "Vendooo — Considered Essentials" },
       { property: "og:description", content: "Considered wardrobe essentials, made to keep." },
       { property: "og:image", content: hero },
     ],
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 const TESTIMONIALS = [
   { q: "The cashmere crew is the softest thing I own. Genuinely heirloom quality.", a: "Maya — Brooklyn" },
   { q: "I waited months for this trench. Worth every day.", a: "Lukas — Berlin" },
-  { q: "Vendoo's quiet aesthetic is exactly what my wardrobe needed.", a: "Aiko — Tokyo" },
+  { q: "Vendooo's quiet aesthetic is exactly what my wardrobe needed.", a: "Aiko — Tokyo" },
 ];
 
 function Page() {

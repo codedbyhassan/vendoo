@@ -6,10 +6,10 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/collections/")({
   head: () => ({
     meta: [
-      { title: "Collections — Vendoo" },
+      { title: "Collections — Vendooo" },
       { name: "description", content: "Curated edits — luxury, streetwear, sneakers, summer drops and more." },
-      { property: "og:title", content: "Collections — Vendoo" },
-      { property: "og:description", content: "Curated edits across the Vendoo wardrobe." },
+      { property: "og:title", content: "Collections — Vendooo" },
+      { property: "og:description", content: "Curated edits across the Vendooo wardrobe." },
     ],
   }),
   component: Page,

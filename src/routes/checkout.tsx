@@ -12,7 +12,7 @@ import { applyCoupon } from "@/lib/coupons";
 import { formatPrice } from "@/lib/format";
 
 export const Route = createFileRoute("/checkout")({
-  head: () => ({ meta: [{ title: "Checkout — Vendoo" }] }),
+  head: () => ({ meta: [{ title: "Checkout — Vendooo" }] }),
   component: Page,
 });
 

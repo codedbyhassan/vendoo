@@ -15,10 +15,10 @@ import { PRODUCTS } from "@/lib/products";
 export const Route = createFileRoute("/product/$id")({
   head: ({ params }) => {
     const p = PRODUCTS.find((x) => x.id === params.id);
-    const title = p ? `${p.name} — Vendoo` : "Product — Vendoo";
+    const title = p ? `${p.name} — Vendooo` : "Product — Vendooo";
     const description = p
       ? `${p.name} · ${p.category} · ${formatPrice(p.price)}. ${p.description ?? "Considered essentials, made in and for Ghana."}`.slice(0, 155)
-      : "Browse considered wardrobe essentials at Vendoo.";
+      : "Browse considered wardrobe essentials at Vendooo.";
     const meta: Array<Record<string, string>> = [
       { title },
       { name: "description", content: description },

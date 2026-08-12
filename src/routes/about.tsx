@@ -4,8 +4,8 @@ import { Layout } from "@/components/Layout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Vendoo" },
-      { name: "description", content: "The Vendoo studio: a small team designing essentials made to keep." },
+      { title: "About — Vendooo" },
+      { name: "description", content: "The Vendooo studio: a small team designing essentials made to keep." },
     ],
   }),
   component: () => (
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/about")({
             Made slowly,<br /><span className="italic text-cocoa">to be kept.</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground">
-            Vendoo is a small studio designing the wardrobe essentials we wished existed —
+            Vendooo is a small studio designing the wardrobe essentials we wished existed —
             cut from honest materials, in fits that age beautifully, with nothing extra.
           </p>
         </div>

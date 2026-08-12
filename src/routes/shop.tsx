@@ -21,8 +21,8 @@ const schema = z.object({
 export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
-      { title: "Shop — Vendoo" },
-      { name: "description", content: "Browse the full Vendoo collection of considered wardrobe essentials." },
+      { title: "Shop — Vendooo" },
+      { name: "description", content: "Browse the full Vendooo collection of considered wardrobe essentials." },
     ],
   }),
   validateSearch: zodValidator(schema),
